@@ -1,7 +1,7 @@
 name: magestic_cli
-description: A sample command-line application.
+description: A Shadcn equivalent for Flutter where you can quickly install widgets onto your projects without having to add them as a dependency. This allows flexible customizations and faster code availability.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/Ronak99/majesticui-cli
 
 environment:
   sdk: ^3.5.4
@@ -17,4 +17,4 @@ dev_dependencies:
   test: ^1.24.0
 
 executables:
-  mui: magestic_cli
+  magestic_cli: magestic_cli
