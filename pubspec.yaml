@@ -1,6 +1,6 @@
 name: majestic_ui
 description: A Shadcn equivalent for Flutter where you can quickly install widgets onto your projects without having to add them as a dependency. This allows flexible customizations and faster code availability.
-version: 1.0.2
+version: 1.0.2+1
 repository: https://github.com/Ronak99/majesticui-cli
 
 environment:
@@ -17,4 +17,4 @@ dev_dependencies:
   test: ^1.24.0
 
 executables:
-  majestic_ui: majestic_cli
+  majestic_ui: majestic_ui

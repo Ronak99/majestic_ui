@@ -1,4 +1,3 @@
-// bin/magestic_cli.dart
 import 'dart:io';
 
 import 'package:args/command_runner.dart';

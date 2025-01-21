@@ -9,3 +9,7 @@
 ## 1.0.2
 
 - Updated package name to majestic_ui.
+
+## 1.0.2+1
+
+- Resolved minor bug
