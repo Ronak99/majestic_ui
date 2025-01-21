@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:majestic_ui/models/widget.dart';
 import 'package:path/path.dart' as path;
 
+// testing change
 // dart run bin/magestic_cli.dart add majestic_avatar
 class MagesticCli {
   static const String _baseUrl =
