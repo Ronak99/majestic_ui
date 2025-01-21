@@ -2,7 +2,7 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:magestic_cli/magestic_cli.dart';
+import 'package:majestic_ui/magestic_cli.dart';
 
 class AddCommand extends Command {
   @override

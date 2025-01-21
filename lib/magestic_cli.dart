@@ -2,7 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-import 'package:magestic_cli/models/widget.dart';
+import 'package:majestic_ui/models/widget.dart';
 import 'package:path/path.dart' as path;
 
 // dart run bin/magestic_cli.dart add majestic_avatar

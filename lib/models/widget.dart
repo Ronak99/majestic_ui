@@ -1,4 +1,4 @@
-import 'package:magestic_cli/models/widget_file.dart';
+import 'package:majestic_ui/models/widget_file.dart';
 
 class Widget {
   final String name;
