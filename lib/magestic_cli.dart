@@ -9,7 +9,7 @@ import 'package:path/path.dart' as path;
 // dart run bin/magestic_cli.dart add majestic_avatar
 class MagesticCli {
   static const String _baseUrl =
-      'https://raw.githubusercontent.com/Ronak99/majesticui-flutter/refs/heads/master/all_widgets.json';
+      'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/all_widgets.json';
 
   Future<void> add(String widgetName) async {
     try {
