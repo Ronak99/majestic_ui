@@ -14,6 +14,6 @@
 
 - Resolved minor bug
 
-## 1.0.2+2
+## 1.0.3
 
 - Updated the all_widgets file link to point to the correct respository.
