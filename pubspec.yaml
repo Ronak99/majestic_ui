@@ -11,6 +11,10 @@ dependencies:
   http: ^1.2.2
   args: ^2.6.0
   path: ^1.9.1
+  chalkdart: ^2.3.2
+  interact_cli: ^2.4.0
+  enough_ascii_art: ^1.1.0
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   lints: ^4.0.0
