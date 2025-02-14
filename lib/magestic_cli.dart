@@ -10,7 +10,7 @@ import 'package:path/path.dart' as path;
 // add welcome_page auth_page landing_page categories_page animated_button avatar
 
 class MagesticCli {
-  static const String _baseUrl = 'http://localhost:3000/api/registry';
+  static const String _baseUrl = 'https://majesticui.com/api/registry';
   Chalk error = chalk.bold.red;
   Chalk warning = chalk.keyword('orange');
   Chalk success = chalk.greenBright;
