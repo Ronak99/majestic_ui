@@ -20,7 +20,11 @@
 
 ## 1.0.4
 
-- Added elegant CLI language and color combination.
+- Updated CLI language and color combination.
+
+## 1.0.5
+
+- Updated elegant CLI language and color combination.
 - Added **DOCS** command - launched documentation at [majestic.com/installation](majesticui.com/installation).
 
 - Developers can now add multiple components.

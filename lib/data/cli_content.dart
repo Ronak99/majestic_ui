@@ -29,14 +29,14 @@ class CliContent {
   }
 
   void printHelpText() {
-    final String name = "Welcome to MajesticUI (1.0.4)";
+    final String name = "Welcome to MajesticUI (1.0.5)";
     final String description =
         "A CLI tool for adding beautiful, tested and reliable widgets to your Flutter project.";
     final String usage = "";
 
     // Printing part
     print("\n");
-    print(chalk.greenBright.bold("Welcome to MajesticUI (1.0.4)"));
+    print(chalk.greenBright.bold("Welcome to MajesticUI (1.0.5)"));
     print(chalk.greenBright(description));
 
     // Description
@@ -54,7 +54,7 @@ class CliContent {
   }
 
   void noParameters() {
-    final String name = "Welcome to MajesticUI (1.0.4)";
+    final String name = "Welcome to MajesticUI (1.0.5)";
     final String description =
         "A CLI tool for adding beautiful, tested and reliable widgets to your Flutter project.";
     final String usage = "";
