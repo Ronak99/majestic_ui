@@ -3,3 +3,6 @@
 .dart_tool/
 
 /test
+
+.flutter-plugins
+.flutter-plugins-dependencies

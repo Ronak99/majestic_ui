@@ -17,30 +17,57 @@ class MagesticCli {
 
   Future<void> add(List<String> requestedComponents) async {
     try {
+      print("");
       // Fetch widgets
       final gift = Spinner(
-        icon: '🏆',
+        icon: success('✔'),
         leftPrompt: (done) => '',
         rightPrompt: (state) => switch (state) {
-          SpinnerStateType.inProgress => 'Processing...',
+          SpinnerStateType.inProgress => 'Checking registry.',
           SpinnerStateType.done => 'Done!',
           SpinnerStateType.failed => 'Failed!',
         },
       ).interact();
 
       final widgets = await _fetchWidgets(requestedComponents);
-
       gift.done();
 
+      final List<Widget> rejectedWidgets = widgets
+          .where((widget) => widget.status == "suggested_changes")
+          .toList();
+
+      if (rejectedWidgets.isNotEmpty) {
+        print("");
+        print(chalk.yellow(
+          "• ${rejectedWidgets.map((w) => w.name).join(", ")} has pending suggested changes, therefore cannot be added.",
+        ));
+        print(chalk.yellow(
+            "Feel free to open an issue regarding this at: https://github.com/Ronak99/majestic-ui-flutter/issues"));
+        print("");
+      }
+
+      // Filter out rejected widgets
+      final List<Widget> activeWidgets = widgets
+          .where((widget) =>
+              widget.status == "approved" || widget.status == "under_review")
+          .toList();
+
+      if (activeWidgets.isEmpty) {
+        print("${success('✔')} No components were created.");
+      } else {
+        print(
+          "${success('✔')} Added ${activeWidgets.length} component${activeWidgets.length == 1 ? "" : "s"}.",
+        );
+      }
+
       // Create Widget Files
-      for (Widget w in widgets) {
+      for (Widget w in activeWidgets) {
         await _createWidgetsFiles(w);
       }
 
-      print(success("\nComponents Added. Check the lib/majestic folder.\n"));
-
       // Handle dependencies
-      handleDependencies(widgets);
+      handleDependencies(activeWidgets);
+      print("");
     } catch (e) {
       print(error("\n An error occurred: ${e.toString()} \n"));
     }
@@ -54,6 +81,7 @@ class MagesticCli {
       return;
     }
 
+    print("");
     final userResponse = MultiSelect(
       prompt:
           'Would you like to opt-out of any of the following dependencies being added to your project?',
@@ -68,7 +96,7 @@ class MagesticCli {
     }
 
     if (selectedDependencies.isEmpty) {
-      print("No depdnecnies were installed");
+      print("No dependencies were installed");
       return;
     }
 
@@ -105,9 +133,16 @@ class MagesticCli {
     return jsonData.map((json) => Widget.fromJson(json)).toList();
   }
 
+  // Handle widget name and file name duplicacy.
   Future<void> _createWidgetsFiles(Widget widget) async {
+    print("");
+    print(" - ${widget.name}");
+    int count = 0;
+    int upperLimit = 2;
+    int remaining = widget.files.length - upperLimit;
+
     for (final file in widget.files) {
-      final directory = Directory(file.filepath);
+      final directory = Directory(path.dirname(file.filepath));
 
       // Create directories if they don't exist
       if (!await directory.exists()) {
@@ -115,9 +150,17 @@ class MagesticCli {
       }
 
       // Create file
-      final filePath = path.join(file.filepath, file.name);
-      final widgetFile = File(filePath);
+      if (count < 2) {
+        print("   - ${file.filepath}");
+      }
+
+      final widgetFile = File(file.filepath);
       await widgetFile.writeAsString(file.content);
+      count += 1;
+    }
+
+    if (remaining > 0) {
+      print("   - and $remaining more");
     }
   }
 }
